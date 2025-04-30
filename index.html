@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BIRAI - Fullstack Developer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1A2C32;
+      color: white;
+      overflow-x: hidden;
+    }
+    header, footer {
+      background-color: #1b263b;
+      padding: 20px 50px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      position: absolute;
+      top: 14px;
+      left: 50px;
+    }
+    .menu-toggle {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .bar {
+      width: 30px;
+      height: 4px;
+      background: white;
+      margin: 3px 0;
+      border-radius: 20px;
+    }
+    nav {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background: #1b263b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+      transition: 0.3s;
+      z-index: 999;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    nav ul li {
+      margin: 20px 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    .nav-active {
+      left: 0;
+    }
+    .hero, .about, .skills, .projects, .contact-section {
+      padding: 40px 10%;
+      text-align: center;
+    }
+    .hero {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .hero img {
+      width: 200px;
+      border-radius: 10px;
+    }
+    .skill-icons img {
+      width: 80px;
+      margin: 10px;
+    }
+    .projects .project-item {
+      background-color: #1b263b;
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+      border-radius: 10px;
+    }
+    button {
+      background-color: #ff6600;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e65c00;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      text-align: left;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #2d3e4f;
+      color: white;
+    }
+    .form-control:focus {
+      outline: 2px solid #ff6600;
+    }
+    .error-message {
+      color: #ff4d4d;
+      font-size: 0.9em;
+    }
+    .counter {
+      font-size: 0.8em;
+      color: #aaa;
+      display: block;
+      margin-top: 5px;
+    }
+    .alert-success {
+      background-color: #28a745;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="logo">BIRAI</div>
+    <nav id="menu">
+      <ul>
+        <li><a href="#" onclick="toggleMenu()">Home</a></li>
+        <li><a href="#" onclick="toggleMenu()">About</a></li>
+        <li><a href="#" onclick="toggleMenu()">Project</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Hello <br> I'm BIRAI <br> I'm Fullstack Developer</h1>
+    <img src="image/abi.png" alt="Avatar">
+  </section>
+
+  <section class="about">
+    <h2>About me</h2>
+    <p>Hello! I'm Birlai Birai, a passionate Fullstack Developer dedicated to building modern, scalable, and user-friendly web applications.</p>
+    <button onclick="window.location.href='cv.pdf'">Download CV</button>
+  </section>
+
+  <section class="skills">
+    <h2>Skill and Tools</h2>
+    <div class="skill-icons">
+      <img src="image/html.png" alt="HTML">
+      <img src="image/js.png" alt="JavaScript">
+      <img src="image/css.png" alt="CSS">
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Last Project</h2>
+    <div class="project-item">
+      <img src="image/wayang.png" width="150">
+      <h3>Culture Web</h3>
+      <button>View</button>
+    </div>
+    <div class="project-item">
+      <img src="image/daun.png" width="150">
+      <h3>Cinta Lingkungan Web</h3>
+      <button>View</button>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="fullName">Nama Lengkap</label>
+          <input type="text" id="fullName" name="fullName" class="form-control" maxlength="50">
+          <small class="error-message" id="fullNameError"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" maxlength="50">
+          <small class="error-message" id="emailError"></small>
+        </div>
+        <div class="form-group">
+          <label for="phone">Nomor Handphone</label>
+          <input type="text" id="phone" name="phone" class="form-control" maxlength="15">
+          <small class="error-message" id="phoneError"></small>
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" class="form-control" rows="5" maxlength="300"></textarea>
+          <small class="counter" id="messageCounter">0/300</small>
+          <small class="error-message" id="messageError"></small>
+        </div>
+        <button type="submit" class="submit-btn">Kirim</button>
+        <div id="formSuccess" class="alert alert-success mt-3" style="display: none;">
+          Pesan Anda telah berhasil dikirim! Terima kasih.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 - Birai</p>
+  </footer>
+
+  <!-- jQuery & Script Validasi -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#message').on('input', function () {
+        $('#messageCounter').text($(this).val().length + "/300");
+      });
+
+      $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+
+        let fullName = $('#fullName').val().trim();
+        let email = $('#email').val().trim();
+        let phone = $('#phone').val().trim();
+        let message = $('#message').val().trim();
+
+        $('.error-message').text('');
+        $('#formSuccess').hide();
+
+        let isValid = true;
+
+        if (fullName === '') {
+          $('#fullNameError').text('Nama lengkap wajib diisi.');
+          isValid = false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          $('#emailError').text('Format email tidak valid.');
+          isValid = false;
+        }
+
+        const phonePattern = /^[0-9]{10,15}$/;
+        if (!phonePattern.test(phone)) {
+          $('#phoneError').text('Nomor handphone harus 10-15 digit angka.');
+          isValid = false;
+        }
+
+        if (message === '') {
+          $('#messageError').text('Pesan tidak boleh kosong.');
+          isValid = false;
+        }
+
+        if (isValid) {
+          $('#formSuccess').fadeIn().delay(4000).fadeOut();
+          $('#contactForm')[0].reset();
+          $('#messageCounter').text("0/300");
+        }
+      });
+    });
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("nav-active");
+    }
+  </script>
+</body>
+</html>
